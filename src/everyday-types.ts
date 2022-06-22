@@ -1,5 +1,7 @@
 import * as String from './string'
 export { String }
+export type Chunk<T, N extends number> = N extends N ? number extends N ? T[] : _Chunk<T, N, []> : never
+export type _Chunk<T, N extends number, R extends unknown[]> = R['length'] extends N ? R : _Chunk<T, N, [T, ...R]>
 export type Class<T> = new(...args: any[]) => T
 export type Ctor = new(...args: any[]) => unknown
 export interface EventHandler<T, E> {
