@@ -5,7 +5,7 @@ export type _Chunk<T, N extends number, R extends unknown[]> = R['length'] exten
 export type Class<T> = new(...args: any[]) => T
 export type Ctor = new(...args: any[]) => unknown
 export interface EventHandler<T, E> {
-  (this: T, event: E & { currentTarget: T }): any
+  (this: T, event: E & { currentTarget: T; target: Element }): any
 }
 export type EventKeys<T> = keyof EventsOf<T>
 export type Fn<T extends unknown[], R> = (...args: T) => R
