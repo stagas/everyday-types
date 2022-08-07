@@ -13,6 +13,7 @@ export type Get<T, K> = T[NarrowKey<K, T>]
 export type Key = number | string | symbol
 export type Keys<T> = keyof { [K in keyof T]: StringOf<K> }
 export type Mixable<T extends Ctor> = { new(...args: any[]): InstanceType<T> } & Omit<T, 'constructor'>
+export type Mutable<T> = { -readonly [P in keyof T]: T[P] }
 export type NarrowKey<K, T> = Narrow<K, keyof T>
 export type Narrow<K, T> = K extends T ? K : never
 export type NonNull<T> = { [K in Keys<T> as T[K] extends Null ? never : K]: T[K] }
